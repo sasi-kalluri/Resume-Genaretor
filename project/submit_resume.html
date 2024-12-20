@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Generated Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #333;
+            position: relative;
+        }
+        .resume-section {
+            margin-bottom: 20px;
+        }
+        .resume-section h2 {
+            color: #4CAF50;
+        }
+        .resume-detail {
+            margin: 5px 0;
+        }
+        /* Photo styling */
+        #resume-photo {
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            max-width: 200px;
+            border-radius: 8px;
+            border: 2px solid #333;
+        }
+        /* Style for the download button */
+        .download-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container" id="resume-container">
+        <h1>Your Resume</h1>
+
+        <div class="resume-section">
+            <h2>Objective</h2>
+            <p class="resume-detail" id="resume-objective"></p>
+        </div>
+
+        <div class="resume-section">
+            <h2>Personal Data</h2>
+            <p class="resume-detail"><strong>Nickname:</strong> <span id="resume-nickname"></span></p>
+            <p class="resume-detail"><strong>Age:</strong> <span id="resume-age"></span></p>
+            <p class="resume-detail"><strong>Sex:</strong> <span id="resume-sex"></span></p>
+            <p class="resume-detail"><strong>Birthday:</strong> <span id="resume-birthday"></span></p>
+            <p class="resume-detail"><strong>Birthplace:</strong> <span id="resume-birthplace"></span></p>
+            <p class="resume-detail"><strong>Father's Name:</strong> <span id="resume-father_name"></span></p>
+            <p class="resume-detail"><strong>Mother's Name:</strong> <span id="resume-mother_name"></span></p>
+            <p class="resume-detail"><strong>Civil Status:</strong> <span id="resume-civil_status"></span></p>
+            <p class="resume-detail"><strong>Nationality:</strong> <span id="resume-nationality"></span></p>
+            <p class="resume-detail"><strong>Religion:</strong> <span id="resume-religion"></span></p>
+        </div>
+
+        <div class="resume-section">
+            <h2>Educational Background</h2>
+            <p class="resume-detail"><strong>College:</strong> <span id="resume-college"></span></p>
+            <p class="resume-detail"><strong>Secondary:</strong> <span id="resume-secondary"></span></p>
+        </div>
+
+        <div class="resume-section">
+            <h2>Character Reference</h2>
+            <p class="resume-detail" id="resume-character_reference"></p>
+        </div>
+
+        <div class="resume-section">
+            <h2>Photo</h2>
+            <img id="resume-photo" alt="Your Photo"/>
+        </div>
+    </div>
+
+    <!-- Download Button -->
+    <button class="download-btn" onclick="downloadResume()">Download Resume</button>
+
+    <script>
+        // Retrieve the stored values from localStorage
+        document.getElementById('resume-objective').textContent = localStorage.getItem('objective');
+        document.getElementById('resume-nickname').textContent = localStorage.getItem('nickname');
+        document.getElementById('resume-age').textContent = localStorage.getItem('age');
+        document.getElementById('resume-sex').textContent = localStorage.getItem('sex');
+        document.getElementById('resume-birthday').textContent = localStorage.getItem('birthday');
+        document.getElementById('resume-birthplace').textContent = localStorage.getItem('birthplace');
+        document.getElementById('resume-father_name').textContent = localStorage.getItem('father_name');
+        document.getElementById('resume-mother_name').textContent = localStorage.getItem('mother_name');
+        document.getElementById('resume-civil_status').textContent = localStorage.getItem('civil_status');
+        document.getElementById('resume-nationality').textContent = localStorage.getItem('nationality');
+        document.getElementById('resume-religion').textContent = localStorage.getItem('religion');
+        document.getElementById('resume-college').textContent = localStorage.getItem('college');
+        document.getElementById('resume-secondary').textContent = localStorage.getItem('secondary');
+        document.getElementById('resume-character_reference').textContent = localStorage.getItem('character_reference');
+
+        // Display uploaded photo if available
+        const photoSrc = localStorage.getItem('photo');
+        if (photoSrc) {
+            document.getElementById('resume-photo').src = photoSrc;
+        }
+
+        // Function to download the resume as an HTML file
+        function downloadResume() {
+            const element = document.createElement('a');
+            const resumeContent = document.getElementById('resume-container').outerHTML;
+
+            const file = new Blob([resumeContent], { type: 'text/html' });
+            element.href = URL.createObjectURL(file);
+            element.download = "Resume.html"; // File name
+
+            document.body.appendChild(element); // Append the link to the body
+            element.click(); // Simulate click for download
+            document.body.removeChild(element); // Remove the link after download
+        }
+    </script>
+
+</body>
+</html>

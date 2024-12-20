@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Form - Selected Template</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpF3mKabvLwOQPFYP_IRN-puHMGZFmAY3uG-PDtIVHPibgGOjTzx5gW5zjxZ6vVrMNazE&usqp=CAU');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            padding: 20px;
+            text-align: center;
+        }
+        .template-preview {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .template-preview img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+        form {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        input, textarea {
+            width: calc(100% + 20px);
+            padding: 10px;
+            margin: 10px -10px;
+            font-size: 16px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        input:focus, textarea:focus {
+            border-color: #45a049;
+            outline: none;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .back-button:hover {
+            background-color: #d32f2f;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+    </style>
+
+    <script>
+        function loadTemplate() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedTemplate = urlParams.get('template');
+
+            const templateImage = document.getElementById('templateImage');
+            
+            switch (selectedTemplate) {
+                case '2':
+                    templateImage.src = 'https://i.pinimg.com/736x/87/91/53/87915397fcb2d0b04899cd90420f4acc.jpg';
+                    templateImage.alt = 'Template 2';
+                    break;
+                case '3':
+                    templateImage.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY27jMnfHKfcRlw7NlrZAqh6NQRgJu_-qs0w&s';
+                    templateImage.alt = 'Template 3';
+                    break;
+                default:
+                    templateImage.src = 'https://image.slidesharecdn.com/pawanresume-180425072002/85/SIMPLE-RESUME-FORMAT-1-320.jpg';
+                    templateImage.alt = 'Template 1';
+                    break;
+            }
+        }
+
+        window.onload = loadTemplate;
+    </script>
+</head>
+<body>
+
+    <h1>Fill Your Resume Details</h1>
+
+    <div class="template-preview">
+        <img id="templateImage" src="" alt="Selected Template" />
+    </div>
+
+    <form action="simple_resume.html" method="get">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required aria-label="Full Name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required aria-label="Email">
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required aria-label="Phone Number">
+
+        <label for="summary">Objective:</label>
+        <textarea id="summary" name="summary" rows="3" required aria-label="Objective"></textarea>
+
+        <h2>Educational Qualifications</h2>
+        <label for="course">Course:</label>
+        <input type="text" id="course" name="course" required aria-label="Course">
+
+        <label for="university">University/Board:</label>
+        <input type="text" id="university" name="university" required aria-label="University/Board">
+
+        <label for="year">Passing Year:</label>
+        <input type="text" id="year" name="year" required aria-label="Passing Year">
+
+        <label for="percentage">Percentage:</label>
+        <input type="text" id="percentage" name="percentage" required aria-label="Percentage">
+
+        <label for="skills">Technical Skills:</label>
+        <textarea id="skills" name="skills" rows="3" required aria-label="Technical Skills"></textarea>
+
+        <label for="hobbies">Hobbies:</label>
+        <textarea id="hobbies" name="hobbies" rows="3" aria-label="Hobbies"></textarea>
+
+        <label for="experience">Experience:</label>
+        <textarea id="experience" name="experience" rows="4" aria-label="Experience"></textarea>
+
+        <button type="submit">Submit Resume</button>
+    </form>
+
+    <a href="resume_template.html"><button class="back-button">Back to Templates</button></a>
+
+</body>
+</html>

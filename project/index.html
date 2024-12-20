@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://static.jobscan.co/blog/uploads/person-building-resume.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .welcome {
+            position: absolute;
+            top: calc(50% - 2in);
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            animation: float 3s ease-in-out infinite alternate;
+        }
+        .welcome h1 {
+            font-size: 50px;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            white-space: nowrap;
+        }
+
+        .info {
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            width: 80%;
+            background-color: rgba(0, 0, 0, 0.6); /* Black with 60% opacity */
+            color: #f0f0f0; /* Light gray font color */
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            line-height: 1.6;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+        }
+
+        .continue-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 30px;
+            background-color: red;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        .continue-button:hover {
+            background-color: darkred;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(-50%, -60%);
+            }
+            100% {
+                transform: translate(-50%, -50%);
+            }
+        }
+    </style>
+
+    <!-- Link to JavaScript -->
+    <script src="scripts.js" defer></script> <!-- Ensure your script is linked -->
+</head>
+<body>
+
+    <div class="welcome">
+        <h1>Welcome to Professional Resume Online</h1>
+    </div>
+
+    <div class="info">
+        <h2>Why Choose Our Resume Builder?</h2>
+        <p>
+            Our platform provides an easy, user-friendly way to create professional resumes that stand out. Whether you're a student, recent graduate, or professional, our tool helps you build a resume that reflects your skills and achievements.
+        </p>
+
+        <h3>Key Features and Benefits</h3>
+        <ul>
+            <li><strong>Professional Templates:</strong> Choose from a wide variety of templates that are designed by experts to match the expectations of different industries.</li>
+            <li><strong>Easy to Use:</strong> With our simple interface, you can create your resume in just a few minutes, no prior design skills needed.</li>
+            <li><strong>Personalized Suggestions:</strong> Get tailored recommendations on what to include in your resume, such as key skills, work experiences, and certifications.</li>
+            <li><strong>Save Time:</strong> Our streamlined process ensures you spend less time formatting and more time focusing on your content.</li>
+        </ul>
+
+        <h3>How to Use the Resume Builder</h3>
+        <p>
+            1. Choose a template that fits your needs.<br>
+            2. Fill in your details such as personal information, work experience, education, and skills.<br>
+            3. Customize the layout, fonts, and colors to match your preferences.<br>
+            4. Review and download your resume in PDF or other formats.<br>
+            5. Use the same account to make edits or updates anytime.
+        </p>
+    </div>
+
+    <div class="continue-button" onclick="handleContinue()">Continue</div>
+
+</body>
+</html>

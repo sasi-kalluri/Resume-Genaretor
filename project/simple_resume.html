@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f1f1f1;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #000; /* Border for the entire resume */
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .download-btn i {
+            margin-right: 8px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="download-btn" onclick="downloadResume()">
+        <i>&#x1F4BE;</i> Download Resume
+    </button>
+
+    <div class="resume-container">
+        <h1>Resume</h1>
+
+        <div class="section">
+            <h2>Personal Information</h2>
+            <p><strong>Full Name:</strong> <span id="nameDisplay"></span></p>
+            <p><strong>Email:</strong> <span id="emailDisplay"></span></p>
+            <p><strong>Phone Number:</strong> <span id="phoneDisplay"></span></p>
+        </div>
+
+        <div class="section">
+            <h2>Objective</h2>
+            <p id="summaryDisplay"></p>
+        </div>
+
+        <div class="section">
+            <h2>Educational Qualifications</h2>
+            <table>
+                <tr>
+                    <th>Course</th>
+                    <th>University/Board</th>
+                    <th>Passing Year</th>
+                    <th>Percentage</th>
+                </tr>
+                <tr>
+                    <td id="courseDisplay"></td>
+                    <td id="universityDisplay"></td>
+                    <td id="yearDisplay"></td>
+                    <td id="percentageDisplay"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <p id="skillsDisplay"></p>
+        </div>
+
+        <div class="section">
+            <h2>Hobbies</h2>
+            <p id="hobbiesDisplay"></p>
+        </div>
+
+        <div class="section">
+            <h2>Experience</h2>
+            <p id="experienceDisplay"></p>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Populate the resume with the user-provided data
+            const params = new URLSearchParams(window.location.search);
+            document.getElementById('nameDisplay').innerText = params.get('name');
+            document.getElementById('emailDisplay').innerText = params.get('email');
+            document.getElementById('phoneDisplay').innerText = params.get('phone');
+            document.getElementById('summaryDisplay').innerText = params.get('summary');
+            document.getElementById('courseDisplay').innerText = params.get('course');
+            document.getElementById('universityDisplay').innerText = params.get('university');
+            document.getElementById('yearDisplay').innerText = params.get('year');
+            document.getElementById('percentageDisplay').innerText = params.get('percentage');
+            document.getElementById('skillsDisplay').innerText = params.get('skills');
+            document.getElementById('hobbiesDisplay').innerText = params.get('hobbies');
+            document.getElementById('experienceDisplay').innerText = params.get('experience');
+        }
+
+        function downloadResume() {
+            const resumeContent = document.documentElement.outerHTML; // Get the HTML content
+            const blob = new Blob([resumeContent], { type: 'text/html' }); // Create a blob
+            const url = URL.createObjectURL(blob); // Create a URL for the blob
+
+            const a = document.createElement('a'); // Create a temporary anchor element
+            a.href = url; // Set the URL to the anchor
+            a.download = 'resume.html'; // Specify the file name
+            document.body.appendChild(a); // Append anchor to the document
+            a.click(); // Programmatically click the anchor to trigger download
+            document.body.removeChild(a); // Remove the anchor from the document
+            URL.revokeObjectURL(url); // Free up memory
+        }
+    </script>
+</body>
+</html>

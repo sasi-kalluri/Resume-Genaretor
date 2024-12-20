@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Template 3 - Fill Your Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdPeaOS3Qh0j9D0pTkenV3ylvI_sKBqnzZmg&s'); 
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-position: center;
+        }
+        h1 {
+            font-size: 36px;
+            color: #333;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        label {
+            font-size: 18px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        input[type="file"] {
+            border: none;
+            padding: 5px;
+        }
+        button {
+            padding: 12px 25px;
+            background-color: #007BFF; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Fill in Your Resume Details for Template 3</h1>
+
+    <form action="coloured_template.html" method="GET" enctype="multipart/form-data">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="about">About Me</label>
+        <textarea id="about" name="about" rows="4" placeholder="Briefly introduce yourself..."></textarea>
+
+        <label for="hobbies">Hobbies</label>
+        <textarea id="hobbies" name="hobbies" rows="4" placeholder="List your hobbies..."></textarea>
+
+        <label for="education">Education</label>
+        <textarea id="education" name="education" rows="4" required></textarea>
+
+        <label for="experience">Experience</label>
+        <textarea id="experience" name="experience" rows="4" required></textarea>
+
+        <label for="skills">Skills</label>
+        <textarea id="skills" name="skills" rows="4" placeholder="List your skills here..." required></textarea>
+
+        <label for="certifications">Certifications</label>
+        <textarea id="certifications" name="certifications" rows="4" placeholder="List your certifications here..."></textarea>
+
+        <label for="projects">Projects</label>
+        <textarea id="projects" name="projects" rows="4" placeholder="Describe any significant projects you have worked on..."></textarea>
+
+        <label for="achievements">Achievements</label>
+        <textarea id="achievements" name="achievements" rows="4" placeholder="Mention any notable achievements..."></textarea>
+
+        <label for="language">Languages</label>
+        <textarea id="language" name="language" rows="4" placeholder="List languages you speak..."></textarea>
+
+        <label for="photo">Upload a Photo</label>   
+        <input type="file" id="photo" name="photo" accept="image/*">
+
+        <label for="references">References</label>
+        <textarea id="references" name="references" rows="4" placeholder="List your professional references..."></textarea>
+
+        <button type="submit">Submit and Generate Resume</button>
+    </form>
+
+</body>
+</html>

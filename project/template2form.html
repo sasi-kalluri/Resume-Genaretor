@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Template 2.1 - Fill Your Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROcC-wh4QaQZFcxQGWFZBRCLmzsxcj1l4sVw&s');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        h1 {
+            font-size: 36px;
+            color: #333;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        input[type="file"] {
+            border: none;
+            padding: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Fill in Your Resume Details for Template 2.1</h1>
+
+    <form id="resumeForm">
+        <label for="objective">Objective</label>
+        <textarea id="objective" name="objective" rows="4" placeholder="Enter your objective..." required></textarea>
+
+        <h2>Personal Data</h2>
+        
+        <label for="nickname">Nickname</label>
+        <input type="text" id="nickname" name="nickname" required>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="sex">Sex</label>
+        <input type="text" id="sex" name="sex" required>
+
+        <label for="birthday">Birthday</label>
+        <input type="date" id="birthday" name="birthday" required>
+
+        <label for="birthplace">Birthplace</label>
+        <input type="text" id="birthplace" name="birthplace" required>
+
+        <label for="father_name">Father's Name</label>
+        <input type="text" id="father_name" name="father_name" required>
+
+        <label for="mother_name">Mother's Name</label>
+        <input type="text" id="mother_name" name="mother_name" required>
+
+        <label for="civil_status">Civil Status</label>
+        <input type="text" id="civil_status" name="civil_status" required>
+
+        <label for="nationality">Nationality</label>
+        <input type="text" id="nationality" name="nationality" required>
+
+        <label for="religion">Religion</label>
+        <input type="text" id="religion" name="religion" required>
+
+        <h2>Educational Background</h2>
+
+        <label for="college">College</label>
+        <input type="text" id="college" name="college" required>
+
+        <label for="secondary">Secondary</label>
+        <input type="text" id="secondary" name="secondary" required>
+
+        <h2>Character Reference</h2>
+        <textarea id="character_reference" name="character_reference" rows="4" placeholder="Enter character references here..." required></textarea>
+
+        <label for="photo">Upload a Photo</label>
+        <input type="file" id="photo" name="photo" accept="image/*">
+
+        <button type="submit">Submit and Generate Resume</button>
+    </form>
+
+    <script>
+        // Function to store form data in localStorage and redirect
+        document.getElementById('resumeForm').onsubmit = function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Store the input values in localStorage
+            localStorage.setItem("objective", document.getElementById("objective").value);
+            localStorage.setItem("nickname", document.getElementById("nickname").value);
+            localStorage.setItem("age", document.getElementById("age").value);
+            localStorage.setItem("sex", document.getElementById("sex").value);
+            localStorage.setItem("birthday", document.getElementById("birthday").value);
+            localStorage.setItem("birthplace", document.getElementById("birthplace").value);
+            localStorage.setItem("father_name", document.getElementById("father_name").value);
+            localStorage.setItem("mother_name", document.getElementById("mother_name").value);
+            localStorage.setItem("civil_status", document.getElementById("civil_status").value);
+            localStorage.setItem("nationality", document.getElementById("nationality").value);
+            localStorage.setItem("religion", document.getElementById("religion").value);
+            localStorage.setItem("college", document.getElementById("college").value);
+            localStorage.setItem("secondary", document.getElementById("secondary").value);
+            localStorage.setItem("character_reference", document.getElementById("character_reference").value);
+
+            // Handle file upload for photo
+            const photoInput = document.getElementById("photo");
+            if (photoInput.files && photoInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    localStorage.setItem("photo", event.target.result);
+                    window.location.href = 'submit_resume.html'; // Redirect to resume page
+                }
+                reader.readAsDataURL(photoInput.files[0]);
+            } else {
+                window.location.href = 'submit_resume.html'; // Redirect if no photo
+            }
+        }
+    </script>
+
+</body>
+</html>
